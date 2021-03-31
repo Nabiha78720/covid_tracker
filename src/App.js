@@ -1,25 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {useState} from 'react';
+
+import Data from './components/data';
+import CountryPicker from './components/picker';
+import Charts from './components/chart';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+  const [country,setCountry]= useState();
+  const [countryData,setCountryData]=useState();
+  return<div class='container'>
+     <h1>COVID-19</h1>
+     <Data country={country} setCountryData={setCountryData}/>
+     <CountryPicker setCountry={setCountry}/>
+     <Charts country={country} countryData={countryData}/>
     </div>
-  );
+
 }
 
 export default App;
